@@ -1,6 +1,3 @@
 class Solution {
-    fun solution(num1: Int, num2: Int): Int {
-        var divisionResult = num1.toDouble() / num2
-        return (divisionResult * 1000).toInt()
-    }
+    fun solution(num1: Int, num2: Int): Int = num1*1000 / num2
 }
