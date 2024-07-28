@@ -1,11 +1,13 @@
 class Solution {
     fun solution(x: Int, n: Int): LongArray {
-        var answer = LongArray(n)
-        answer[0] = x.toLong()
+        // 길이가 n인 LongArray 생성
+        val answer = LongArray(n)
         
-        for (i in 1 until n) {
-            answer[i] = answer[i - 1] + x
+        // x부터 시작해서 x씩 증가하는 숫자를 n개 추가
+        for (i in 0 until n) {
+            answer[i] = x.toLong() * (i + 1)
         }
+        
         return answer
     }
 }
