@@ -1,10 +1,13 @@
 class Solution {
     fun solution(n: Long): Long {
-        var answer: Long = 0
+        // n의 제곱근을 계산합니다.
+        val sqrt = kotlin.math.sqrt(n.toDouble()).toLong()
         
-        for(x:Long in 1..n){
-            if(x*x == n) return (x+1)*(x+1)
+        // 제곱근의 제곱이 n과 같은지 확인합니다.
+        return if (sqrt * sqrt == n) {
+            (sqrt + 1) * (sqrt + 1)
+        } else {
+            -1
         }
-        return -1
     }
 }
