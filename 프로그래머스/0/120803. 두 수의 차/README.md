@@ -1,10 +1,10 @@
 # [level 0] 두 수의 차 - 120803 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120803) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120803?language=kotlin) 
 
 ### 성능 요약
 
-메모리: 59.8 MB, 시간: 0.02 ms
+메모리: 61.3 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 07월 13일 00:14:58
+2024년 08월 25일 19:30:22
 
 ### 문제 설명
 
