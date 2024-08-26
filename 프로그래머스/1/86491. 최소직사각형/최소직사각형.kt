@@ -1,17 +1,20 @@
 class Solution {
     fun solution(sizes: Array<IntArray>): Int {
-        var max = ArrayList<Int>()
-        var min = ArrayList<Int>()
+        var maxWidth = 0
+        var maxHeight = 0
 
-        for (i in sizes) {
-            if (i[0] >= i[1]) {
-                max.add(i[0])
-                min.add(i[1])
-            } else {
-                max.add(i[1])
-                min.add(i[0])
-            }
+        for (size in sizes) {
+            val (w, h) = size
+            // 각 명함을 회전시켜 가로가 항상 큰 값이 되도록 정렬
+            val maxSide = maxOf(w, h)
+            val minSide = minOf(w, h)
+
+            // 최대 가로와 최대 세로 값을 찾습니다.
+            maxWidth = maxOf(maxWidth, maxSide)
+            maxHeight = maxOf(maxHeight, minSide)
         }
-        return max.maxOrNull()!! * min.maxOrNull()!!
+
+        // 최대 가로와 최대 세로를 곱한 값이 최소 지갑 크기입니다.
+        return maxWidth * maxHeight
     }
 }
