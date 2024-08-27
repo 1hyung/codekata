@@ -1,14 +1,10 @@
 class Solution {
     fun solution(s: String, n: Int): String {
-        return s.toCharArray().map{
-            when(it){
-                in 'A'..'Z' -> {
-                    if(it + n > 'Z') it + n - 26 else it + n
-                }in 'a'..'z' -> {
-                    if(it + n > 'z') it + n - 26 else it + n
-                }else -> {
-                    it
-                }
+        return s.map { char ->
+            when {
+                char.isUpperCase() -> 'A' + (char - 'A' + n) % 26
+                char.isLowerCase() -> 'a' + (char - 'a' + n) % 26
+                else -> char
             }
         }.joinToString("")
     }
