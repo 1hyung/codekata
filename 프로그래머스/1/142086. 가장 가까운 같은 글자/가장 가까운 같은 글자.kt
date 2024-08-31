@@ -1,21 +1,18 @@
 class Solution {
     fun solution(s: String): IntArray {
-        var answer: IntArray = intArrayOf()
-        var checkList = mutableListOf<Char>()
-        s.forEach{
-            if(checkList.contains(it)){
-                for(i in checkList.size-1 downTo 0){
-                    if(checkList[i] == it){
-                        answer += checkList.size-i
-                        checkList.add(it)
-                        break
-                    }
-                }
+        val lastSeen = mutableMapOf<Char, Int>()  // 각 문자의 마지막 출현 위치를 저장할 맵
+        val result = IntArray(s.length)  // 결과를 저장할 배열
+
+        for (i in s.indices) {
+            val char = s[i]
+            if (char in lastSeen) {
+                result[i] = i - lastSeen[char]!!
             } else {
-                checkList.add(it)
-                answer += -1
+                result[i] = -1
             }
+            lastSeen[char] = i  // 현재 문자의 위치를 업데이트
         }
-        return answer
+
+        return result
     }
 }
