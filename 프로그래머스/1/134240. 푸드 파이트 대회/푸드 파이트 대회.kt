@@ -1,16 +1,15 @@
 class Solution {
     fun solution(food: IntArray): String {
-        var answer: String = ""
-        val foodCnt = food.slice(1..food.size-1).map{ it/2 }
-        val individualFood = mutableListOf<Int>()
-        for(i in foodCnt.indices){
-            for(j in 0 until foodCnt[i]) {
-                if(foodCnt[i]!=0) {
-                    individualFood.add(i+1)
-                } 
-            } 
+        val leftSide = StringBuilder()
+
+        // 좌측과 우측 배치할 음식 생성
+        for (i in 1 until food.size) {
+            val count = food[i] / 2
+            leftSide.append(i.toString().repeat(count))
         }
-        answer = individualFood.joinToString("") + "0" + individualFood.reversed().joinToString("")
-        return answer
+
+        // 중앙에 물(0)을 배치하고, 우측은 좌측을 반대로 붙이기
+        val result = leftSide.toString() + "0" + leftSide.reverse().toString()
+        return result
     }
 }
