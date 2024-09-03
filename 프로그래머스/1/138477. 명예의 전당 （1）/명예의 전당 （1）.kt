@@ -1,16 +1,18 @@
+import java.util.PriorityQueue
+
 class Solution {
     fun solution(k: Int, score: IntArray): IntArray {
-        var answer: IntArray = intArrayOf()
-        
-        var topK = mutableListOf<Int>()
-        for(sc in score){
-            if(topK.size < k) topK += sc
-            else if(topK[0] < sc) topK[0] = sc
-            
-            topK.sort()
-            answer += topK[0]
+        val hallOfFame = PriorityQueue<Int>() // 오름차순으로 정렬된 우선순위 큐
+        val result = mutableListOf<Int>()
+
+        for (s in score) {
+            hallOfFame.add(s)
+            if (hallOfFame.size > k) {
+                hallOfFame.poll() // 가장 작은 값을 제거하여 크기를 유지
+            }
+            result.add(hallOfFame.peek()) // 현재 명예의 전당에서 가장 작은 값을 저장
         }
-        
-        return answer
+
+        return result.toIntArray()
     }
 }
