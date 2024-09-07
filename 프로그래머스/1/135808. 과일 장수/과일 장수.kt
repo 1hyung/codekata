@@ -1,18 +1,15 @@
 class Solution {
-	fun solution(k: Int, m: Int, score: IntArray): Int {
-		var answer: Int = 0
-		score.sort()
-		val maxBoxLength: Int = score.size / m
-		var idx = 0
-		var min = 10
-        var i: Int = score.size - 1
-		while (i >= m - 1) {
-			for (j in i downTo i - m + 1) {
-				min = Math.min(min, score.get(j))
-			}
-			answer += min * m
-			i -= m
-		}
-        return answer
+    fun solution(k: Int, m: Int, score: IntArray): Int {
+        var totalProfit = 0
+
+        // 사과 점수를 내림차순으로 정렬
+        score.sortDescending()
+
+        // m개씩 묶어서 상자 만들기
+        for (i in m - 1 until score.size step m) {
+            totalProfit += score[i] * m
+        }
+
+        return totalProfit
     }
 }
