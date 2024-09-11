@@ -1,25 +1,30 @@
-import kotlin.math.*
 class Solution {
     fun solution(number: Int, limit: Int, power: Int): Int {
-        var answer: Int = 0
-        var attackList = mutableListOf<Int>()
-        for(i in 1 .. number){
-            var count = 0
-            var end = sqrt(i.toDouble()).toInt()
-            for(j in 1 .. end){
-                if(j * j == i){
-                    count++
-                } else if(i % j == 0){
-                    count += 2
-                }
-            }
-            if(count > limit){
-               attackList.add(power) 
+        var totalWeight = 0
+
+        for (i in 1..number) {
+            val divisorCount = getDivisorCount(i)
+            if (divisorCount > limit) {
+                totalWeight += power
             } else {
-                attackList.add(count) 
+                totalWeight += divisorCount
             }
         }
-        answer = attackList.sum()
-        return answer
+
+        return totalWeight
+    }
+
+    // 약수 개수를 구하는 함수
+    private fun getDivisorCount(n: Int): Int {
+        var count = 0
+        for (i in 1..Math.sqrt(n.toDouble()).toInt()) {
+            if (n % i == 0) {
+                count++  // i가 약수일 때
+                if (i != n / i) {
+                    count++  // n / i도 약수일 때
+                }
+            }
+        }
+        return count
     }
 }
