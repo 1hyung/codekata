@@ -1,24 +1,40 @@
 class Solution {
     fun solution(X: String, Y: String): String {
-        val countsX = X.groupingBy { it }.eachCount()
-        val countsY = Y.groupingBy { it }.eachCount()
-        
-        var result = StringBuilder()
-        var zero = true
-        
-        for (digit in '9' downTo '1') {
-            val minCount = minOf(countsX.getOrDefault(digit, 0), countsY.getOrDefault(digit, 0))
-            if(minCount>0){
-                zero = false
-                result.append(digit.toString().repeat(minCount))
+        // 숫자 0부터 9까지 각각의 개수를 저장할 배열
+        val countX = IntArray(10)
+        val countY = IntArray(10)
+
+        // X의 각 숫자의 개수를 카운트
+        for (char in X) {
+            countX[char - '0']++
+        }
+
+        // Y의 각 숫자의 개수를 카운트
+        for (char in Y) {
+            countY[char - '0']++
+        }
+
+        // 공통된 숫자를 찾고, 내림차순으로 문자열로 결과를 만들기 위한 변수
+        val result = StringBuilder()
+
+        // 9부터 0까지 확인하여 큰 숫자부터 추가
+        for (i in 9 downTo 0) {
+            val commonCount = minOf(countX[i], countY[i])  // X와 Y에서 공통으로 나타난 횟수의 최소값
+            repeat(commonCount) {
+                result.append(i)  // 공통 숫자를 추가
             }
         }
-        val zeroCount = minOf(countsX.getOrDefault('0', 0), countsY.getOrDefault('0', 0))
-        if (zeroCount > 0 && !zero) {
-            result.append('0'.toString().repeat(zeroCount))
-        } else if (zeroCount > 0) {
-            result.append('0')
+
+        // 공통 숫자가 없으면 -1을 반환
+        if (result.isEmpty()) {
+            return "-1"
         }
-        return result.toString().ifEmpty { "-1" }
+
+        // 공통 숫자가 0으로만 이루어져 있으면 "0"을 반환
+        if (result.toString() == "0".repeat(result.length)) {
+            return "0"
+        }
+
+        return result.toString()
     }
 }
