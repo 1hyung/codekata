@@ -1,26 +1,32 @@
 class Solution {
     fun solution(s: String): Int {
-        var x = s[0]
-        var xCount = 0
-        var yCount = 0
-        var result = 0
-        var cleaned = false
+        var countX = 0 // 첫 글자와 같은 글자의 개수
+        var countOther = 0 // 첫 글자와 다른 글자의 개수
+        var answer = 0 // 분리된 문자열의 개수
+        var firstChar = s[0] // 첫 글자를 기준으로 분리
 
-        s.forEachIndexed { index, c ->
-            if (cleaned) {
-                x = c
-                cleaned = false
+        for (i in s.indices) {
+            if (s[i] == firstChar) {
+                countX++
+            } else {
+                countOther++
             }
 
-            if (c == x) xCount += 1
-            if (c != x) yCount += 1
-
-            if (xCount == yCount || index == s.lastIndex) {
-                result += 1
-                cleaned = true
+            // x와 다른 글자의 개수가 같아지면 분리
+            if (countX == countOther) {
+                answer++
+                // 새로운 첫 글자 설정
+                if (i + 1 < s.length) {
+                    firstChar = s[i + 1]
+                }
+                countX = 0
+                countOther = 0
             }
         }
-
-        return result
+        // 마지막 남은 부분 처리
+        if (countX != 0 || countOther != 0) {
+            answer++
+        }
+        return answer
     }
 }
