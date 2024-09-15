@@ -1,24 +1,30 @@
 class Solution {
     fun solution(keymap: Array<String>, targets: Array<String>): IntArray {
-        val keyHashMap = mutableMapOf<Char, Int>()
+        val keyMap = mutableMapOf<Char, Int>()
+        
+        // 각 문자가 자판에서 눌러야 하는 최소 횟수를 저장
+        for (key in keymap) {
+            for (i in key.indices) {
+                val char = key[i]
+                keyMap[char] = minOf(keyMap.getOrDefault(char, Int.MAX_VALUE), i + 1)
+            }
+        }
+
         val result = mutableListOf<Int>()
-
-        keymap.forEachIndexed { i, key ->
-            key.forEachIndexed { j, value ->
-                if (j < (keyHashMap[value] ?: 1000)) {
-                    keyHashMap[value] = j + 1
+        
+        // 각 타겟 문자열에 대한 최소 누름 횟수 계산
+        for (target in targets) {
+            var pressCount = 0
+            for (char in target) {
+                if (char !in keyMap) {
+                    pressCount = -1
+                    break
                 }
+                pressCount += keyMap[char] ?: 0
             }
+            result.add(pressCount)
         }
-
-        targets.forEachIndexed { i, target ->
-            var count = 0
-            target.forEachIndexed { j, value ->
-                count += keyHashMap[value] ?: 1000
-            }
-            result.add(if (count < 1000) count else -1)
-        }
-
+        
         return result.toIntArray()
     }
 }
