@@ -1,26 +1,14 @@
 class Solution {
     fun solution(s: String, skip: String, index: Int): String {
-        var answer: String = ""
-        s.forEach{
-            var check = it.toInt()
-            var count = 0
-            while(count != index){
-                count++
-                if(check + 1 > 122){
-                    check = 97
-                } else {
-                    check++
-                }
-                while(skip.contains(check.toChar())){
-                    check++
-                    if(check > 122){
-                        check = 97
-                    }
-                }
-            }
-            answer += check.toChar().toString()
+        val alphabet = ('a'..'z').filterNot { it in skip }
+        val result = StringBuilder()
+
+        for (char in s) {
+            val currentIndex = alphabet.indexOf(char)
+            val newIndex = (currentIndex + index) % alphabet.size
+            result.append(alphabet[newIndex])
         }
 
-        return answer
+        return result.toString()
     }
 }
