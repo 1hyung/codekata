@@ -1,27 +1,16 @@
 class Solution {
     fun solution(ingredient: IntArray): Int {
-        val st = mutableListOf<Int>()
-    
-        var answer: Int = 0
-        for (ing in ingredient) {
-            st.add(ing)
-            
-            if (st.size >= 4) {
-                val peek1 = st.removeAt(st.size - 1)
-                val peek2 = st.removeAt(st.size - 1)
-                val peek3 = st.removeAt(st.size - 1)
-                val peek4 = st.removeAt(st.size - 1)
-                
-                if ((peek4 == 1) && (peek3 == 2) && (peek2 == 3) && (peek1 == 1)) {
-                    answer++
-                } else {
-                    st.add(peek4)
-                    st.add(peek3)
-                    st.add(peek2)
-                    st.add(peek1)
-                }
+        val stack = mutableListOf<Int>()
+        var count = 0
+
+        for (item in ingredient) {
+            stack.add(item)
+            // 스택의 마지막 4개가 [1, 2, 3, 1]이면 햄버거 포장
+            if (stack.size >= 4 && stack.takeLast(4) == listOf(1, 2, 3, 1)) {
+                count++
+                repeat(4) { stack.removeAt(stack.size - 1) } // 마지막 4개 제거
             }
         }
-        return answer
+        return count
     }
 }
