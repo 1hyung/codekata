@@ -1,16 +1,17 @@
 class Solution {
     fun solution(n: Int): Int {
-        if (n == 0) return 0
-        if (n == 1) return 1
-
-        val answer = IntArray(n + 1)
-        answer[0] = 0
-        answer[1] = 1
-
+        val mod = 1234567
+        var a = 0 // F(0)
+        var b = 1 // F(1)
+        
+        // 2 이상부터 n번째 피보나치 수를 계산
         for (i in 2..n) {
-            answer[i] = (answer[i - 1] + answer[i - 2]) % 1234567
+            val temp = (a + b) % mod
+            a = b
+            b = temp
         }
-
-        return answer[n]
+        
+        // n번째 피보나치 수를 반환
+        return b
     }
 }
