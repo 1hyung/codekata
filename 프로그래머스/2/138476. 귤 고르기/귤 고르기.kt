@@ -1,24 +1,24 @@
 class Solution {
     fun solution(k: Int, tangerine: IntArray): Int {
-        val maxTangerineSize = tangerine.maxOrNull() ?: 0
-        val countArr = IntArray(maxTangerineSize + 1)
-        
-        tangerine.forEach { countArr[it]++ }
-        
-        countArr.sortDescending()
-        
-        var rest = k
-        var ans = 0
-        
-        for (quantity in countArr) {
-            if (rest <= 0) break
-            
-            if (quantity > 0) {
-                ans++
-                rest -= quantity
-            }
+        // 1. 각 크기별 귤의 개수를 카운트합니다.
+        val countMap = mutableMapOf<Int, Int>()
+        for (size in tangerine) {
+            countMap[size] = countMap.getOrDefault(size, 0) + 1
         }
-        
-        return ans
+
+        // 2. 개수를 내림차순으로 정렬합니다.
+        val sortedCounts = countMap.values.sortedDescending()
+
+        // 3. 최소한의 종류로 k개 이상의 귤을 담기
+        var total = 0
+        var kinds = 0
+
+        for (count in sortedCounts) {
+            total += count
+            kinds++
+            if (total >= k) break
+        }
+
+        return kinds
     }
 }
