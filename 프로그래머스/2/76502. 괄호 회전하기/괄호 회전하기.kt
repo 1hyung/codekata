@@ -1,25 +1,36 @@
-import java.util.Stack
-
 class Solution {
     fun solution(s: String): Int {
-        return s.indices.count { isTrue(s.substring(it, s.length) + s.substring(0, it)) }
-    }
+        var count = 0
+        val n = s.length
 
-    fun isTrue(s: String): Boolean {
-        val stack = Stack<Char>()
-        val brackets = mapOf('(' to ')', '{' to '}', '[' to ']')
-
-        if (s[0] in brackets.values) return false
-
-        for (c in s) {
-            if (c in brackets.keys) {
-                stack.push(c)
-            } else if (stack.isNotEmpty() && brackets[stack.peek()] == c) {
-                stack.pop()
-            } else {
-                return false
+        for (i in 0 until n) {
+            val rotated = s.substring(i, n) + s.substring(0, i)
+            if (isValid(rotated)) {
+                count++
             }
         }
+
+        return count
+    }
+
+    private fun isValid(s: String): Boolean {
+        val stack = mutableListOf<Char>()
+
+        for (char in s) {
+            when (char) {
+                '(', '[', '{' -> stack.add(char)
+                ')' -> {
+                    if (stack.isEmpty() || stack.removeAt(stack.size - 1) != '(') return false
+                }
+                ']' -> {
+                    if (stack.isEmpty() || stack.removeAt(stack.size - 1) != '[') return false
+                }
+                '}' -> {
+                    if (stack.isEmpty() || stack.removeAt(stack.size - 1) != '{') return false
+                }
+            }
+        }
+
         return stack.isEmpty()
     }
 }
