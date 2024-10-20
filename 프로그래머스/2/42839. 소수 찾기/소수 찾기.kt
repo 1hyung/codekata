@@ -1,28 +1,37 @@
+import kotlin.math.sqrt
+
 class Solution {
-    private var answer = 0
-    private val answerSet = mutableSetOf<Int>()
-
     fun solution(numbers: String): Int {
-        val cards = numbers.toCharArray()
-        cards.forEachIndexed { index, c ->
-            addNumber(c.toString(), cards.filterIndexed { i, _ -> index != i })
-        }
-
-        answerSet.forEach {
-            if (isPrime(it)) answer++
-        }
-
-        return answer
+        val numSet = mutableSetOf<Int>()
+        
+        // 1. 모든 조합의 수를 생성
+        generatePermutations(numbers, "", numSet)
+        
+        // 2. 소수의 개수 세기
+        return numSet.count { isPrime(it) }
     }
-
-    private fun addNumber(number: String, cards: List<Char>) {
-        answerSet.add(number.toInt())
-        if (cards.isEmpty()) return
-
-        cards.forEachIndexed { index, c ->
-            addNumber("$number$c", cards.filterIndexed { i, _ -> index != i })
+    
+    // 모든 숫자 조합을 구하는 함수
+    private fun generatePermutations(numbers: String, current: String, numSet: MutableSet<Int>) {
+        if (current.isNotEmpty()) {
+            numSet.add(current.toInt())  // 현재 숫자를 세트에 추가
+        }
+        
+        for (i in numbers.indices) {
+            generatePermutations(
+                numbers.removeRange(i, i + 1), 
+                current + numbers[i], 
+                numSet
+            )
         }
     }
-
-    private fun isPrime(n: Int): Boolean = n > 1 && (2..Math.sqrt(n.toDouble()).toInt()).none { n % it == 0 }
+    
+    // 소수 판별 함수
+    private fun isPrime(num: Int): Boolean {
+        if (num < 2) return false
+        for (i in 2..sqrt(num.toDouble()).toInt()) {
+            if (num % i == 0) return false
+        }
+        return true
+    }
 }
