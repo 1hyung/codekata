@@ -1,33 +1,40 @@
 class Solution {
     fun solution(arr: Array<IntArray>): IntArray {
-        val zeroOne = intArrayOf(0, 0)  
+        val result = IntArray(2) // 0의 개수와 1의 개수 저장 배열
 
-        fun dfs(r: Int, c: Int, sz: Int) {
-            val zipable = canZip(arr, r, c, sz)  
-            if (zipable != -1) {
-                zeroOne[zipable]++  
-                return
+        // 배열을 압축하는 함수
+        fun compress(x: Int, y: Int, size: Int) {
+            // 현재 구역의 첫 번째 값
+            val initial = arr[x][y]
+            var same = true
+
+            // 현재 구역이 모두 같은 값인지 확인
+            for (i in x until x + size) {
+                for (j in y until y + size) {
+                    if (arr[i][j] != initial) {
+                        same = false
+                        break
+                    }
+                }
+                if (!same) break
             }
 
-            val halfSize = sz / 2
-            dfs(r, c, halfSize)
-            dfs(r, c + halfSize, halfSize)
-            dfs(r + halfSize, c, halfSize)
-            dfs(r + halfSize, c + halfSize, halfSize)
-        }
-
-        dfs(0, 0, arr.size)  
-
-        return zeroOne  
-    }
-
-    fun canZip(arr: Array<IntArray>, r: Int, c: Int, sz: Int): Int {
-        val start = arr[r][c]  
-        for (i in r until r + sz) {
-            for (j in c until c + sz) {
-                if (arr[i][j] != start) return -1 
+            // 만약 같은 값으로 이루어져 있으면 해당 값을 카운트
+            if (same) {
+                result[initial] += 1
+            } else {
+                // 그렇지 않으면 4등분하여 다시 압축 시도
+                val newSize = size / 2
+                compress(x, y, newSize)               // 왼쪽 위
+                compress(x, y + newSize, newSize)     // 오른쪽 위
+                compress(x + newSize, y, newSize)     // 왼쪽 아래
+                compress(x + newSize, y + newSize, newSize) // 오른쪽 아래
             }
         }
-        return start  
+
+        // 전체 배열을 처음부터 압축 시작
+        compress(0, 0, arr.size)
+
+        return result
     }
 }
