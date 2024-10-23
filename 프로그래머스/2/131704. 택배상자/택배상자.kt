@@ -1,29 +1,35 @@
-import java.util.*
+import java.util.Stack
 
 class Solution {
     fun solution(order: IntArray): Int {
-        var cnt = 0 
-        val stk = Stack<Int>()  
+        var answer = 0
+        val stack = Stack<Int>()
+        var index = 0
+        var box = 1
         
-        for (item in 1..order.size) {  
-            if (item == order[cnt]) {
-                cnt++  
-            } else {
-                cnt = popInSecondBelt(stk, order, cnt)  
-                stk.push(item) 
+        while (box <= order.size) {
+            var currentOrder = order[index]
+            
+            // 현재 상자를 실을 수 있는지 확인 (컨테이너 벨트 또는 스택에서)
+            while (box == currentOrder || (stack.isNotEmpty() && stack.peek() == currentOrder)) {
+                if (box == currentOrder) {
+                    box++
+                } else {
+                    stack.pop()
+                }
+                answer++
+                index++
+                
+                // 모든 상자를 다 처리했을 경우 빠르게 종료
+                if (index >= order.size) break
+                
+                currentOrder = order[index]  // 다음 상자 확인
             }
+            
+            // 트럭에 실을 수 없는 상자는 스택에 넣기
+            stack.push(box++)
         }
-        cnt = popInSecondBelt(stk, order, cnt)  
-
-        return cnt  
-    }
-
-    private fun popInSecondBelt(stk: Stack<Int>, order: IntArray, cnt: Int): Int {
-        var tempCnt = cnt
-        while (stk.isNotEmpty() && tempCnt < order.size && order[tempCnt] == stk.peek()) {
-            stk.pop() 
-            tempCnt++  
-        }
-        return tempCnt  
+        
+        return answer
     }
 }
