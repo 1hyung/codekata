@@ -1,40 +1,33 @@
 class Solution {
-    fun solution(queue1: IntArray, queue2: IntArray): Long {
-        var answer: Long = 0
-        
-        var dq1 = ArrayDeque<Long>()
-        var dq2 = ArrayDeque<Long>()
-        
-        queue1.forEach { dq1.add(it.toLong()) }
-        queue2.forEach { dq2.add(it.toLong()) }
-        
-        var sumOfQueue1: Long = dq1.sum()
-        var sumOfQueue2: Long = dq2.sum()
-        
-        var limitLoopCount = queue1.size * 4
-        
-        while (answer <= limitLoopCount) {
-            if (sumOfQueue1 == sumOfQueue2) {
-                return answer 
+    fun solution(queue1: IntArray, queue2: IntArray): Int {
+        val totalQueue = (queue1 + queue2).map { it.toLong() }
+        val targetSum = (totalQueue.sum() / 2)
+
+        if (totalQueue.sum() % 2 != 0L) return -1 // 전체 합이 홀수인 경우 -1 반환
+
+        var i = 0
+        var j = queue1.size
+        var sum1 = queue1.sumOf { it.toLong() }
+        var moves = 0
+        val maxMoves = queue1.size * 3 // 한 큐의 최대 3배 횟수로 제한
+
+        while (moves <= maxMoves) {
+            when {
+                sum1 == targetSum -> return moves // 목표 합에 도달했을 때
+                sum1 > targetSum -> {
+                    // queue1에서 pop하여 queue2로 이동
+                    sum1 -= totalQueue[i]
+                    i = (i + 1) % totalQueue.size
+                }
+                sum1 < targetSum -> {
+                    // queue2에서 pop하여 queue1로 이동
+                    sum1 += totalQueue[j]
+                    j = (j + 1) % totalQueue.size
+                }
             }
-             
-            ++answer 
-             
-            if (sumOfQueue1 < sumOfQueue2) {
-                var element = dq2.first()
-                dq1.add(element)
-                dq2.removeFirst()
-                sumOfQueue1 += element
-                sumOfQueue2 -= element
-            } else {
-                var element = dq1.first()
-                dq2.add(element)
-                dq1.removeFirst()
-                sumOfQueue2 += element
-                sumOfQueue1 -= element
-            }
-        } 
-        
-        return -1  
+            moves++
+        }
+
+        return -1 // 목표 합을 맞출 수 없는 경우
     }
 }
