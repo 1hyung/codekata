@@ -1,31 +1,34 @@
 class Solution {
     fun solution(sequence: IntArray, k: Int): IntArray {
-        var answer: IntArray = intArrayOf()
-        val pSum = LongArray(sequence.size + 1)
-        for (i in 1..sequence.size) {
-            pSum[i] = pSum[i - 1] + sequence[i - 1]
+        var start = 0
+        var end = 0
+        var sum = sequence[0]
+        var minLength = Int.MAX_VALUE
+        var result = intArrayOf(-1, -1)
+        
+        while (end < sequence.size) {
+            // 조건을 만족하는 경우
+            if (sum == k) {
+                val length = end - start + 1
+                // 최소 길이 업데이트 및 결과 저장
+                if (length < minLength || (length == minLength && start < result[0])) {
+                    minLength = length
+                    result = intArrayOf(start, end)
+                }
+                // start를 증가시켜 부분 합을 줄이기
+                sum -= sequence[start++]
+            }
+            // 현재 합이 k보다 작고 end를 확장할 수 있는 경우
+            else if (sum < k) {
+                end++
+                if (end < sequence.size) sum += sequence[end]
+            }
+            // 현재 합이 k보다 큰 경우
+            else {
+                sum -= sequence[start++]
+            }
         }
         
-        for (cnt in 1..sequence.size) {
-            var left = -1
-            var right = -1
-            var s = 0
-            var e = sequence.size - cnt
-            while (s <= e) {
-                val mid = (s + e) / 2
-                val sum = pSum[mid + cnt] - pSum[mid]
-                if (sum >= k) {
-                    if (sum == k.toLong()) {
-                        left = mid
-                        right = mid + cnt - 1
-                    }
-                    e = mid - 1
-                } else {
-                    s = mid + 1
-                }
-            }
-            if (left != -1 && right != -1) return intArrayOf(left, right)
-        }
-        return answer
+        return result
     }
 }
