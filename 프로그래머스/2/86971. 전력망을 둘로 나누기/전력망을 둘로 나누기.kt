@@ -1,50 +1,58 @@
-import kotlin.math.*
-
 class Solution {
-    
-    private var answer: Int = 100
-
     fun solution(n: Int, wires: Array<IntArray>): Int {
-        val tree = Array(n + 1) {
-            mutableListOf<Int>()
+        // 그래프 인접 리스트 생성
+        val graph = Array(n + 1) { mutableListOf<Int>() }
+        for (wire in wires) {
+            val (v1, v2) = wire
+            graph[v1].add(v2)
+            graph[v2].add(v1)
         }
 
-        wires.forEach { wire ->
-            val v1 = wire[0]
-            val v2 = wire[1]
+        var minDiff = Int.MAX_VALUE // 최소 차이를 저장할 변수
 
-            tree[v1].add(v2)
-            tree[v2].add(v1)
+        // 전선을 하나씩 끊어보며 최소 차이 계산
+        for (wire in wires) {
+            val (v1, v2) = wire
+
+            // 전선 끊기 (간선 제거)
+            graph[v1].remove(v2)
+            graph[v2].remove(v1)
+
+            // v1을 기준으로 한쪽 네트워크 송전탑 개수 계산
+            val count1 = bfs(v1, graph, n)
+
+            // 다른 쪽 네트워크 송전탑 개수
+            val count2 = n - count1
+
+            // 송전탑 개수 차이 계산 및 최소 차이 갱신
+            minDiff = minOf(minDiff, kotlin.math.abs(count1 - count2))
+
+            // 전선 복구 (간선 추가)
+            graph[v1].add(v2)
+            graph[v2].add(v1)
         }
 
-        wires.forEach { wire ->
-            val network1 = towerCount(wire[0], wire[1], tree, BooleanArray(n + 1))
-            val network2 = towerCount(wire[1], wire[0], tree, BooleanArray(n + 1))
-
-            answer = answer.coerceAtMost((network1 - network2).absoluteValue)
-        }
-
-        return answer
+        return minDiff
     }
 
-    private fun towerCount(v1: Int, v2: Int, tree: Array<MutableList<Int>>, visited: BooleanArray): Int {
-        var count = 1
+    // BFS로 네트워크에 연결된 송전탑 개수를 세는 함수
+    private fun bfs(start: Int, graph: Array<MutableList<Int>>, n: Int): Int {
+        val visited = BooleanArray(n + 1) { false }
         val queue = ArrayDeque<Int>()
-        visited[v1] = true
-        queue.add(v1)
+        queue.add(start)
+        visited[start] = true
+        var count = 1 // 시작 송전탑 포함
 
         while (queue.isNotEmpty()) {
-            val current = queue.removeFirst()
-
-            tree[current].forEach { next ->
-                if (!visited[next] && next != v2) {
+            val node = queue.removeFirst()
+            for (neighbor in graph[node]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true
+                    queue.add(neighbor)
                     count++
-                    visited[next] = true
-                    queue.add(next)
                 }
             }
         }
-
         return count
     }
 }
