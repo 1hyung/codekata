@@ -1,24 +1,14 @@
-import kotlin.math.max
-import kotlin.math.min
+import kotlin.math.*
 
 class Solution {
     fun solution(w: Int, h: Int): Long {
-    val lw = w.toLong()
-    val lh = h.toLong()
-
-    var answer: Long = (lw * lh)
-
-
-    return answer - (lw+lh- gcd(lw,lh))
+        val gcdValue = gcd(w, h)
+        val unusableSquares = w.toLong() + h.toLong() - gcdValue
+        return w.toLong() * h.toLong() - unusableSquares
     }
-}
-fun gcd(a: Long, b: Long): Long {
-    var maximum = max(a, b)
-    var minimum = min(a, b)
-
-    if (minimum == 0.toLong()) {
-        return max(a, b)
-    } else {
-        return gcd(minimum, maximum % minimum)
+    
+    // 최대 공약수 계산 함수
+    private fun gcd(a: Int, b: Int): Long {
+        return if (b == 0) a.toLong() else gcd(b, a % b)
     }
 }
