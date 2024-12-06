@@ -1,11 +1,11 @@
 SELECT 
-    P.ID,
-    P.NAME,
-    P.HOST_ID
+    ID, 
+    NAME, 
+    HOST_ID
 FROM 
-    PLACES P
+    PLACES
 WHERE 
-    P.HOST_ID IN (
+    HOST_ID IN (
         SELECT 
             HOST_ID
         FROM 
@@ -13,7 +13,7 @@ WHERE
         GROUP BY 
             HOST_ID
         HAVING 
-            COUNT(*) >= 2 -- 두 개 이상의 공간을 등록한 호스트만 선택
+            COUNT(*) >= 2 -- 등록된 공간이 2개 이상인 경우 "헤비 유저"
     )
 ORDER BY 
-    P.ID; -- ID 기준으로 오름차순 정렬
+    ID ASC; -- ID를 기준으로 오름차순 정렬
