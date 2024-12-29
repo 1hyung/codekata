@@ -1,6 +1,5 @@
+// n 이하의 짝수를 모두 더한 값을 반환하는 함수
 class Solution {
-    fun solution(n: Int): Int {
-        // 1부터 n까지의 숫자 중 짝수만 필터링하여 합을 구함
-        return (1..n).filter{it%2 == 0}.sum()
-    }
+    fun solution(n: Int): Int =
+        (2..n step 2).sum() // 2부터 n까지 2씩 증가하며 모든 값을 더함
 }
