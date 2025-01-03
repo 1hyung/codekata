@@ -1,15 +1,16 @@
 class Solution {
     fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> {
-        // 새로운 행렬을 생성하여 결과를 저장
-        val result = Array(arr1.size) { IntArray(arr1[0].size) }
-        
-        // 두 행렬을 순회하면서 덧셈 수행
-        for (i in arr1.indices) {
-            for (j in arr1[i].indices) {
-                result[i][j] = arr1[i][j] + arr2[i][j]
+        val rows = arr1.size       // 행(row)의 개수
+        val cols = arr1[0].size    // 열(column)의 개수
+
+        val answer = Array(rows) { IntArray(cols) } // 결과 행렬 초기화
+
+        for (i in 0 until rows) {      // 행을 반복
+            for (j in 0 until cols) {  // 열을 반복
+                answer[i][j] = arr1[i][j] + arr2[i][j] // 같은 위치의 원소를 더함
             }
         }
-        
-        return result
+
+        return answer // 결과 행렬 반환
     }
 }
