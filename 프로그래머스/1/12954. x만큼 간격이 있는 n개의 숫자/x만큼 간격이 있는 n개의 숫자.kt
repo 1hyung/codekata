@@ -1,13 +1,4 @@
 class Solution {
-    fun solution(x: Int, n: Int): LongArray {
-        // 길이가 n인 LongArray 생성
-        val answer = LongArray(n)
-        
-        // x부터 시작해서 x씩 증가하는 숫자를 n개 추가
-        for (i in 0 until n) {
-            answer[i] = x.toLong() * (i + 1)
-        }
-        
-        return answer
-    }
+    fun solution(x: Int, n: Int): LongArray =
+        (1..n).map { x.toLong() * it }.toLongArray() // x를 Long으로 변환하여 범위의 각 요소와 곱하고 LongArray로 변환
 }
