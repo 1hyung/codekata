@@ -1,12 +1,6 @@
 class Solution {
-    // 반복문 활용
-    fun solution(n: Int): Int {
-        var sum = 0
-        for (i in 1..n) { // i가 1부터 n까지 반복
-            if (n % i == 0) { // i가 n의 약수인지 확인
-                sum += i // 약수를 합산
-            }
-        }
-        return sum
-    }
+    // 단일 표현식 함수
+    fun solution(n: Int): Int =
+        (1..n).filter { n % it == 0} // 약수 필터링
+            .sum() // 약수들의 합 계산
 }
