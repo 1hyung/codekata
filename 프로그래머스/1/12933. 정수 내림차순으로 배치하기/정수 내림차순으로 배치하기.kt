@@ -1,3 +1,8 @@
 class Solution {
-    fun solution(n: Long): Long = String(n.toString().toCharArray().sortedArrayDescending()).toLong()
+    fun solution(n: Long): Long =
+        n.toString() // 정수 n을 문자열로 변환 (예: 12345 -> "12345")
+            .toList() // 문자열을 문자 리스트로 변환 (예: "12345" -> ['1', '2', '3', '4', '5'])
+            .sortedDescending() // 리스트를 내림차순으로 정렬 (예: ['1', '2', '3', '4', '5'] -> ['5', '4', '3', '2', '1'])
+            .joinToString("") // 정렬된 리스트를 하나의 문자열로 결합 (예: ['5', '4', '3', '2', '1'] -> "54321")
+            .toLong() // 문자열을 다시 정수(Long)로 변환 (예: "54321" -> 54321)
 }
