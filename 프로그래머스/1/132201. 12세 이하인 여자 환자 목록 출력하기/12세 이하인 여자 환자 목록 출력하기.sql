@@ -1,4 +1,15 @@
-SELECT PT_NAME, PT_NO, GEND_CD, AGE, IFNULL(TLNO, 'NONE') AS TLNO
-FROM PATIENT
-WHERE GEND_CD = 'W' AND AGE <= 12
-ORDER BY AGE DESC, PT_NAME ASC;
+-- 12세 이하인 여자 환자 목록 출력
+SELECT
+    PT_NAME,                          -- 환자 이름
+    PT_NO,                            -- 환자 번호
+    GEND_CD,                          -- 성별 코드
+    AGE,                              -- 나이
+    COALESCE(TLNO, 'NONE') AS TLNO    -- 전화번호가 NULL일 경우 'NONE'으로 출력
+FROM
+    PATIENT                           -- 데이터를 조회할 테이블
+WHERE
+    GEND_CD = 'W'                     -- 성별 코드가 여자(W)
+    AND AGE <= 12                     -- 나이가 12세 이하
+ORDER BY
+    AGE DESC,                         -- 나이를 기준으로 내림차순 정렬
+    PT_NAME ASC;                      -- 나이가 같다면 환자 이름을 기준으로 오름차순 정렬
