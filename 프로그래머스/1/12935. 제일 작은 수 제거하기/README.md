@@ -1,10 +1,10 @@
 # [level 1] 제일 작은 수 제거하기 - 12935 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12935) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12935?language=kotlin) 
 
 ### 성능 요약
 
-메모리: 81.6 MB, 시간: 28.95 ms
+메모리: 83.6 MB, 시간: 605.61 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 08월 10일 22:57:46
+2025년 01월 18일 21:40:43
 
 ### 문제 설명
 
