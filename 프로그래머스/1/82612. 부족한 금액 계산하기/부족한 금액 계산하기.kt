@@ -1,12 +1,10 @@
 class Solution {
-    fun solution(price: Int, money: Int, count: Int): Long {
-        // 총 비용 계산
-        val totalCost = price.toLong() * count * (count + 1) / 2
-        
-        // 부족한 금액 계산
-        val shortage = totalCost - money
-        
-        // 부족한 금액이 음수일 경우 0을 반환, 아니면 부족한 금액을 반환
-        return if (shortage > 0) shortage else 0
-    }
+    // 놀이기구의 총 금액을 계산하고 부족 금액을 반환하는 함수
+    fun solution(price: Int, money: Int, count: Int): Long =
+        maxOf( // 부족 금액이 0보다 작으면 0 반환
+            0, 
+            (1..count) // 1부터 count까지의 범위 생성
+                .sumOf { it.toLong() * price } // 각 회차별 금액(it * price)의 합을 계산
+                - money // 현재 가진 금액을 뺀 값을 계산
+        )
 }
