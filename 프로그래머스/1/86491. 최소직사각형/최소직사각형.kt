@@ -1,20 +1,18 @@
 class Solution {
     fun solution(sizes: Array<IntArray>): Int {
-        var maxWidth = 0
-        var maxHeight = 0
+        var maxWidth = 0  // 가장 긴 가로 길이
+        var maxHeight = 0 // 가장 긴 세로 길이
 
         for (size in sizes) {
-            val (w, h) = size
-            // 각 명함을 회전시켜 가로가 항상 큰 값이 되도록 정렬
-            val maxSide = maxOf(w, h)
-            val minSide = minOf(w, h)
+            val w = size[0] // 명함의 가로 길이
+            val h = size[1] // 명함의 세로 길이
 
-            // 최대 가로와 최대 세로 값을 찾습니다.
-            maxWidth = maxOf(maxWidth, maxSide)
-            maxHeight = maxOf(maxHeight, minSide)
+            val (big, small) = if (w > h) w to h else h to w // 큰 값을 가로, 작은 값을 세로로 설정
+
+            maxWidth = maxOf(maxWidth, big) // 현재까지의 최대 가로 길이 업데이트
+            maxHeight = maxOf(maxHeight, small) // 현재까지의 최대 세로 길이 업데이트
         }
 
-        // 최대 가로와 최대 세로를 곱한 값이 최소 지갑 크기입니다.
-        return maxWidth * maxHeight
+        return maxWidth * maxHeight // 최소한의 지갑 크기 반환
     }
 }
