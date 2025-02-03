@@ -1,11 +1,10 @@
 class Solution {
-    fun solution(s: String, n: Int): String {
-        return s.map { char ->
+    fun solution(s: String, n: Int): String = 
+        s.map { 
             when {
-                char.isUpperCase() -> 'A' + (char - 'A' + n) % 26
-                char.isLowerCase() -> 'a' + (char - 'a' + n) % 26
-                else -> char
+                it.isUpperCase() -> 'A' + (it - 'A' + n) % 26 // 대문자 변환
+                it.isLowerCase() -> 'a' + (it - 'a' + n) % 26 // 소문자 변환
+                else -> it // 공백은 그대로 유지
             }
-        }.joinToString("")
-    }
+        }.joinToString("") // 리스트를 문자열로 변환
 }
