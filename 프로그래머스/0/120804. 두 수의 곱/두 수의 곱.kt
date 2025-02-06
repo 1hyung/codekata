@@ -1,4 +1,12 @@
-// 두 정수 num1과 num2를 입력받아 곱한 결과를 반환하는 단일 표현식 함수 
+// 두 정수의 곱
 class Solution {
-    fun solution(num1: Int, num2: Int): Int = num1 * num2 // 두 정수의 곱셈 연산의 결과를 단일 표현식 함수로 간결하게 표현
+    fun solution(num1: Int, num2: Int): Int {
+        // 입력받은 두 수를 multiply 함수를 사용해 곱한 값을 반환
+        return multiply(num1, num2)
+    }
+
+    // 두 수의 곱을 반환하는 함수 (Solution 클래스 내부에서만 사용 가능)
+    private fun multiply(a: Int, b: Int): Int {
+        return a * b 
+    }
 }
