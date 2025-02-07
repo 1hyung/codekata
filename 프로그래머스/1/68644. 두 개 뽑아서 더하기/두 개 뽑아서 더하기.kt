@@ -1,13 +1,11 @@
+import kotlin.collections.*
+
 class Solution {
     fun solution(numbers: IntArray): IntArray {
-        val sums = mutableSetOf<Int>()
-
-        for (i in numbers.indices) {
-            for (j in i + 1 until numbers.size) {
-                sums.add(numbers[i] + numbers[j])
-            }
-        }
-
-        return sums.sorted().toIntArray()
+        return numbers.indices
+            .flatMap { i -> (i + 1 until numbers.size).map { j -> numbers[i] + numbers[j] } }
+            .toSet() // 중복 제거
+            .sorted() // 정렬
+            .toIntArray()
     }
 }
