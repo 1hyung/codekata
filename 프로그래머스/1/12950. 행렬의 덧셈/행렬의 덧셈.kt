@@ -1,9 +1,6 @@
 class Solution {
-    fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> {
-        return arr1.mapIndexed { i, row -> // 각 행을 처리
-            row.mapIndexed { j, value -> // 각 열을 처리
-                value + arr2[i][j] // 같은 위치의 값을 더함
-            }.toIntArray() // 행을 IntArray로 변환
-        }.toTypedArray() // 전체 결과를 Array<IntArray>로 변환
-    }
+    fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> =
+        arr1.zip(arr2) { row1, row2 ->  // 각 행을 쌍으로 묶음
+            row1.zip(row2) { a, b -> a + b }.toIntArray() // 각 열을 쌍으로 묶어 덧셈
+        }.toTypedArray() // 최종적으로 2차원 배열로 변환
 }
