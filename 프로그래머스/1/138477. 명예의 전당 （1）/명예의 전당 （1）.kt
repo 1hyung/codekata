@@ -1,18 +1,15 @@
-import java.util.PriorityQueue
-
 class Solution {
     fun solution(k: Int, score: IntArray): IntArray {
-        val hallOfFame = PriorityQueue<Int>() // 오름차순으로 정렬된 우선순위 큐
-        val result = mutableListOf<Int>()
+        val honor = mutableListOf<Int>() // 명예의 전당 점수 목록
+        val answer = mutableListOf<Int>() // 발표 점수 기록
 
         for (s in score) {
-            hallOfFame.add(s)
-            if (hallOfFame.size > k) {
-                hallOfFame.poll() // 가장 작은 값을 제거하여 크기를 유지
-            }
-            result.add(hallOfFame.peek()) // 현재 명예의 전당에서 가장 작은 값을 저장
+            honor.add(s) // 새로운 점수 추가
+            honor.sortDescending() // 점수 내림차순 정렬
+            if (honor.size > k) honor.removeLast() // k개 초과 시 가장 낮은 점수 제거
+            answer.add(honor.last()) // 최하위 점수 저장
         }
 
-        return result.toIntArray()
+        return answer.toIntArray()
     }
 }
