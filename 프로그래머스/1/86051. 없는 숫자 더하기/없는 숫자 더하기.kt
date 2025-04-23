@@ -1,4 +1,4 @@
 class Solution {
     fun solution(numbers: IntArray): Int =
-        (0..9).sum() - numbers.sum() // 전체 숫자 합(45)에서 numbers의 합을 뺌
+        (0..9).filter { it !in numbers }.sum() // 0~9 중 numbers에 없는 숫자 필터링 후 합산
 }
