@@ -1,3 +1,4 @@
+// x만큼 간격이 있는 n개의 숫자
 class Solution {
     fun solution(x: Int, n: Int): LongArray =
         (1..n) // 1부터 n까지 범위 생성
