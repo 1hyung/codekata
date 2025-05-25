@@ -1,3 +1,4 @@
+// 자릿수 더하기
 class Solution {
     fun solution(n: Int): Int =
         n.toString() // 숫자를 문자열로 변환 (예: 123 → "123")
