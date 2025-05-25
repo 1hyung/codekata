@@ -1,4 +1,4 @@
-// 두 정수의 합
+// 두 수의 합 구하기
 class Solution {
-    fun solution(num1: Int, num2: Int): Int = num1 + num2
+    fun solution(num1: Int, num2: Int) = num1 + num2
 }
