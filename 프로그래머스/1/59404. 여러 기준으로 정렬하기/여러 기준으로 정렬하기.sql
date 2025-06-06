@@ -7,5 +7,5 @@ SELECT
 FROM 
     ANIMAL_INS -- 데이터를 조회할 테이블
 ORDER BY
-    NAME ASC, -- 이름 순 정렬
-    DATETIME DESC ; -- 이름이 같을 경우 보호 시작일을 내림차순 정렬 
+    NAME, -- 이름 순 정렬
+    DATETIME DESC ; -- 이름이 같을 경우 보호 시작일을 내림차순 정렬
