@@ -9,4 +9,4 @@ WHERE
     ANIMAL_TYPE = 'Dog' AND -- 동물의 종류가 개인 경우
     NAME LIKE '%el%' -- 이름에 'el'이 포함된 경우(LOWER() 함수는 문자열을 소문자로 변환하여 대소문자 구분 없이 검색, UPPER()도 사용 가능)
 ORDER BY
-    NAME ASC; -- 이름 순으로 오름차순 정렬
+    NAME; -- 이름 순으로 오름차순 정렬
