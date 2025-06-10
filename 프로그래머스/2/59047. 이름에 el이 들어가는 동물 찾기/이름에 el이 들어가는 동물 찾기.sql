@@ -7,7 +7,7 @@ SELECT
 FROM 
     ANIMAL_INS -- 데이터를 조회하는 테이블 
 WHERE 
-    ANIMAL_TYPE = 'Dog' AND -- 돔울의 종류가 개인 경우
+    ANIMAL_TYPE = 'Dog' AND -- 동물의 종류가 개인 경우
     NAME LIKE '%el%' -- 이름에 'el'이 포함된 경우
 ORDER BY
     NAME ASC; -- 이름 순으로 오름차순 정렬
