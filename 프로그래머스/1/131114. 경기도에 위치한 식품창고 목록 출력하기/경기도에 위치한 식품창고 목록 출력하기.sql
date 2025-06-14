@@ -1,13 +1,14 @@
--- 경기도에 위치한 창고의 ID, 이름, 주소, 냉동시설 여부를 조회하는 SQL문
+-- 경기도에 위치한 식품창고 목록 출력하기
+-- 경기도에 위치한 창고의 ID, 이름, 주소, 냉동시설 여부를 조회하는 SQL문을 작성
 -- 냉동시설 여부가 NULL인 경우, 'N'으로 출력시켜 주시고 결과는 창고 ID를 기준으로 오름차순 정렬
 SELECT
     WAREHOUSE_ID, -- 창고의 ID
     WAREHOUSE_NAME, -- 이름
     ADDRESS, -- 주소
     IFNULL(FREEZER_YN, 'N') AS FREEZER_YN -- 냉동시설 여부가 NULL인 경우, 'N'으로 출력
-FROM
-    FOOD_WAREHOUSE -- 데이터를 조회할 테이블
-WHERE
-    ADDRESS LIKE '경기도%' -- 주소가 '경기도'로 시작하는 경우 필터링
-ORDER BY 
-    WAREHOUSE_ID ASC; -- 창고 ID를 기준으로 오름차순 정렬
+FROM 
+   FOOD_WAREHOUSE -- 데이터를 조회할 테이블
+WHERE 
+    ADDRESS LIKE '경기도%' -- 주소가 경기도 필터링
+ORDER BY
+    WAREHOUSE_ID ASC;
