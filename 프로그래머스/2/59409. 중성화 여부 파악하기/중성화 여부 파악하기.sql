@@ -13,4 +13,4 @@ SELECT
 FROM
     ANIMAL_INS -- 데이터를 조회할 테이블
 ORDER BY
-    ANIMAL_ID ASC; -- 아이디 순으로 오름차순 정렬
+    ANIMAL_ID; -- 아이디 순으로 오름차순 정렬
