@@ -1,3 +1,4 @@
+-- 입양 시각 구하기(1)
 -- 09:00부터 19:59까지 각 시간대별 입양 건수를 조회
 SELECT 
     HOUR(DATETIME) AS HOUR,   -- DATETIME에서 시간을 추출하여 HOUR로 표시
