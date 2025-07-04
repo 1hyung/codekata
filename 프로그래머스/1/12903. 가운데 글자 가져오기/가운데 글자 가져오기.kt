@@ -1,3 +1,4 @@
+// 가운데 글자 가져오기 
 class Solution {
     fun solution(s: String): String {
         val len = s.length
