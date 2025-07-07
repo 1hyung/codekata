@@ -1,10 +1,10 @@
--- 보호소에서 중성화 수술을 받은 동물 조회
+-- 보호소에서 중성화한 동물
 SELECT 
     ANIMAL_INS.ANIMAL_ID,    -- 동물의 아이디
     ANIMAL_INS.ANIMAL_TYPE,  -- 동물의 종류 (예: 개, 고양이 등)
     ANIMAL_INS.NAME          -- 동물의 이름
 FROM 
-    ANIMAL_INS
+    ANIMAL_INS -- 데이터를 조회할 테이블 
 JOIN 
     ANIMAL_OUTS 
     ON ANIMAL_INS.ANIMAL_ID = ANIMAL_OUTS.ANIMAL_ID -- 입양된 동물 연결 (ANIMAL_ID 기준)
