@@ -1,3 +1,4 @@
+// 2016년
 class Solution {
     fun solution(a: Int, b: Int): String {
         val days = arrayOf("FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU") // 2016년 1월 1일 기준 요일 배열
