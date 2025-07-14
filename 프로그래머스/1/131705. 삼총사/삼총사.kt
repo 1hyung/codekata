@@ -1,3 +1,4 @@
+// 삼총사
 class Solution {
     fun solution(number: IntArray): Int {
         var count = 0 // 삼총사 개수 카운트
