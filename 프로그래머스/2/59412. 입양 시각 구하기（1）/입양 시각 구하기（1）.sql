@@ -10,4 +10,4 @@ WHERE
 GROUP BY 
     HOUR(DATETIME)            -- 시간대별로 그룹화
 ORDER BY 
-    HOUR(DATETIME);           -- 시간대 순으로 정렬
+    HOUR(DATETIME) ASC;           -- 시간대 순으로 정렬
