@@ -1,15 +1,16 @@
--- 동물 보호소에 들어온 동물 이름 중 두 번 이상 쓰인 이름과 해당 이름이 쓰인 횟수를 조회하는 SQL
+-- 동명 동물 수 찾기
+-- 동물 보호소에 들어온 동물 이름 중 두 번 이상 쓰인 이름과 해당 이름이 쓰인 횟수를 조회하는 SQL문을 작성
 -- 결과는 이름이 없는 동물은 집계에서 제외하며, 결과는 이름 순으로 조회
 SELECT
-    NAME, -- 동물의 이름
-    COUNT(NAME) AS COUNT -- 이름이 사용된 횟수
+    NAME,
+    COUNT(NAME) AS COUNT
 FROM
-    ANIMAL_INS -- 데이터를 조회할 테이블
+   ANIMAL_INS
 WHERE 
-    NAME IS NOT NULL -- 이름이 없는 동물은 집계에서 제외
+    NAME IS NOT NULL
 GROUP BY
-    NAME -- 이름으로 그룹화
+    NAME
 HAVING
-    COUNT(NAME) > 1 -- 두 번 이상 사용된 이름만 필터링
+    COUNT(NAME) > 1
 ORDER BY
-    NAME ASC; -- 이름순 정렬
+    NAME
