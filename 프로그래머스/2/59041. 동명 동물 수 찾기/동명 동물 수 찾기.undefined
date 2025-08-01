@@ -11,6 +11,6 @@ where
 group by
     NAME -- NAME으로 그룹화
 having
-    COUNT > 1 -- 1번 이상 쓰인 이름 조회 
+    COUNT > 1 -- 두 번 이상 쓰인 이름 조회 
 order by
-    name asc;   -- 결과는 이름 순 조회    
+    name asc;   -- 결과는 이름 순 조회
