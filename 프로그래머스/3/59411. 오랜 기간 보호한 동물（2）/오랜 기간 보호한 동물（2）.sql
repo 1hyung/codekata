@@ -1,14 +1,11 @@
--- 보호 기간이 가장 길었던 동물 두 마리 조회
+-- 오랜 기간 보호한 동물(2)
+-- 입양을 간 동물 중, 보호 기간이 가장 길었던 동물 두 마리의 아이디와 이름을 조회하는 SQL문을 작성
+-- 결과는 보호 기간이 긴 순으로 조회
 SELECT
-    I.ANIMAL_ID, -- 동물의 아이디
-    I.NAME       -- 동물의 이름
-FROM
-    ANIMAL_INS I
-JOIN
-    ANIMAL_OUTS O
-ON
-    I.ANIMAL_ID = O.ANIMAL_ID -- 입양된 동물 연결
+    AI.ANIMAL_ID, 
+    AI.NAME
+FROM 
+    ANIMAL_INS AI INNER JOIN ANIMAL_OUTS AO ON AI.ANIMAL_ID = AO.ANIMAL_ID
 ORDER BY
-    DATEDIFF(O.DATETIME, I.DATETIME) DESC, -- 보호 기간 기준 내림차순 정렬
-    I.ANIMAL_ID ASC -- 보호 기간이 같을 경우 아이디 기준 오름차순 정렬
-LIMIT 2; -- 상위 2개 결과만 반환
+    (AO.DATETIME - AI.DATETIME) DESC
+LIMIT 2;
