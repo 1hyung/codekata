@@ -10,4 +10,4 @@ FROM
 WHERE
     CATEGORY = '경제' -- 경제 카테고리 
 ORDER BY 
-    PUBLISHED_DATE ASC; -- 출판일 기준으로 오름차순 정렬
+    B.PUBLISHED_DATE ASC; -- 출판일 기준으로 오름차순 정렬
