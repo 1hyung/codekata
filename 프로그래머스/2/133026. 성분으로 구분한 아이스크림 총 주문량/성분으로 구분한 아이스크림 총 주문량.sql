@@ -9,4 +9,4 @@ FROM
 GROUP BY
     II.INGREDIENT_TYPE -- 각 성분 타입 그룹핑
 ORDER BY
-    FH.TOTAL_ORDER ASC; -- 총 주문량 작은 순서대로 정렬
+    TOTAL_ORDER ASC; -- 총 주문량 작은 순서대로 정렬
