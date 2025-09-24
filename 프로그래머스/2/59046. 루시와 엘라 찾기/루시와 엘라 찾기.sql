@@ -6,7 +6,7 @@ SELECT
     SEX_UPON_INTAKE
 FROM
     ANIMAL_INS
-WHERE 
-    NAME IN ('Lucy', 'Ella', 'Pickle', 'Rogan', 'Sabrina', 'Mitty')
+WHERE
+    NAME LIKE 'Lucy' OR NAME LIKE 'Ella' OR NAME LIKE 'Pickle' OR NAME LIKE 'Sabrina' OR NAME LIKE 'Mitty' OR NAME LIKE 'Rogan'
 ORDER BY
     ANIMAL_ID ASC;
