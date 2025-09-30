@@ -1,18 +1,17 @@
--- 완료된 중고 거래의 총금액이 70만 원 이상인 사용자 조회
-SELECT 
-    U.USER_ID,  -- 회원 ID
-    U.NICKNAME, -- 닉네임
-    SUM(B.PRICE) AS TOTAL_SALES -- 총 거래 금액
+-- 조건에 맞는 사용자와 총 거래금액 조회하기
+-- 완료된 중고 거래의 총금액이 70만 원 이상인 사람의 회원 ID, 닉네임, 총거래금액을 조회하는 SQL문을 작성
+-- 결과는 총거래금액을 기준으로 오름차순 정렬
+SELECT
+    GB.WRITER_ID,
+    GU.NICKNAME,
+    SUM(GB.PRICE) AS TOTAL_SALES
 FROM 
-    USED_GOODS_BOARD B
-JOIN 
-    USED_GOODS_USER U 
-    ON B.WRITER_ID = U.USER_ID -- 작성자와 사용자 매칭
+    USED_GOODS_BOARD GB INNER JOIN USED_GOODS_USER GU ON GB.WRITER_ID = GU.USER_ID
 WHERE 
-    B.STATUS = 'DONE' -- 완료된 거래만 선택
-GROUP BY 
-    U.USER_ID, U.NICKNAME -- 사용자별 그룹화
+    STATUS = 'DONE'
+GROUP BY
+    GB.WRITER_ID
 HAVING 
-    TOTAL_SALES >= 700000 -- 70만 원 이상인 사용자만 선택
-ORDER BY 
-    TOTAL_SALES ASC; -- 총 거래 금액 기준 오름차순 정렬
+    TOTAL_SALES >= 700000
+ORDER BY
+    TOTAL_SALES ASC;
