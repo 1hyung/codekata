@@ -14,4 +14,4 @@ GROUP BY
 HAVING
     SUM(UGB.PRICE) >= 700000 -- 총거래금액 70만원 이상 필터링
 ORDER BY
-    SUM(PRICE) ASC; -- 총거래금액 오름차순 정렬
+    TOTAL_SALES ASC; -- 총거래금액 오름차순 정렬
