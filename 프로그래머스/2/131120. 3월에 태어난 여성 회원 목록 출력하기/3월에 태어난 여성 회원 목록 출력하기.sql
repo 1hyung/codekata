@@ -3,13 +3,13 @@
 -- 전화번호가 NULL인 경우는 출력대상에서 제외
 -- 결과는 회원ID를 기준으로 오름차순 정렬
 SELECT
-    MEMBER_ID, -- 회원의 ID
-    MEMBER_NAME, -- 이름
-    GENDER, -- 성별
-    DATE_FORMAT(DATE_OF_BIRTH, '%Y-%m-%d') AS DATE_OF_BIRTH -- 생년월일
-FROM
-    MEMBER_PROFILE -- 데이터를 조회할 테이블
+    MEMBER_ID,                         -- 회원 ID
+    MEMBER_NAME,                       -- 회원 이름
+    GENDER,                            -- 성별
+    DATE_FORMAT(DATE_OF_BIRTH, '%Y-%m-%d') AS DATE_OF_BIRTH  -- 생년월일
+FROM MEMBER_PROFILE
 WHERE
-    MONTH(DATE_OF_BIRTH) = 03 AND TLNO IS NOT NULL AND GENDER IN ('W') -- 생일 3월, 전화번호 존재, 성별은 여성
-ORDER BY    
-    MEMBER_ID ASC; -- 결과는 MEMBER_ID 기준 오름차순 정렬
+    MONTH(DATE_OF_BIRTH) = 3           -- 생일이 3월인 회원
+    AND GENDER = 'W'                   -- 여성 회원
+    AND TLNO IS NOT NULL               -- 전화번호가 존재하는 회원
+ORDER BY MEMBER_ID ASC;                -- ID 오름차순 정렬
