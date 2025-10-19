@@ -1,5 +1,4 @@
 -- 음식 종류별로 즐겨찾기 수가 가장 많은 식당 정보 조회
--- 결과는 FOOD_TYPE 기준 내림차순 정렬
 SELECT 
     r.FOOD_TYPE, 
     r.REST_ID, 
