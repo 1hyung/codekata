@@ -1,5 +1,4 @@
 -- 특정 카테고리 내에서 가격이 가장 비싼 식품 정보 조회
--- 가격(PRICE) 기준 내림차순 정렬
 SELECT 
     f.CATEGORY, 
     f.PRICE AS MAX_PRICE, 
