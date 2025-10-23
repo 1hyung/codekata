@@ -1,4 +1,5 @@
 -- 특정 카테고리 내에서 가격이 가장 비싼 식품 정보 조회
+-- 식품분류별로 가격이 제일 비싼 식품의 분류, 가격, 이름을 조회하는 SQL문을 작성
 SELECT 
     f.CATEGORY, 
     f.PRICE AS MAX_PRICE, 
