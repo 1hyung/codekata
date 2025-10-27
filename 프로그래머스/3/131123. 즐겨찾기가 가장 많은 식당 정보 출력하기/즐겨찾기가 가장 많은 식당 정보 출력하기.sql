@@ -9,10 +9,6 @@ SELECT
 FROM 
     REST_INFO R
 WHERE
-    R.FAVORITES = (
-        select max(FAVORITES) 
-        from REST_INFO 
-        where FOOD_TYPE = R.FOOD_TYPE
-    )
+    R.FAVORITES = (select max(FAVORITES) from REST_INFO where FOOD_TYPE = R.FOOD_TYPE)
 ORDER BY
     R.FOOD_TYPE DESC;
