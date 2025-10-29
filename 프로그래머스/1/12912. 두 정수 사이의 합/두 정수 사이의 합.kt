@@ -1,3 +1,4 @@
+// 두 정수 사이의 합
 class Solution {
     fun solution(a: Int, b: Int): Long {
         val start = minOf(a, b) // a와 b 중 작은 값을 시작 값으로 설정
