@@ -1,3 +1,4 @@
+// 콜라츠 추측
 class Solution {
     fun solution(num: Int): Int {
         var current = num.toLong() // 연산 중 overflow 방지를 위해 Long으로 변환
