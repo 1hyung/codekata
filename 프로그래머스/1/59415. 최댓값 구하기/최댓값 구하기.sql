@@ -1,4 +1,5 @@
-SELECT 
-    MAX(DATETIME) AS 시간
+-- 최댓값 구하기
+SELECT
+    MAX(DATETIME)
 FROM 
-    ANIMAL_INS;
+    ANIMAL_INS;    
