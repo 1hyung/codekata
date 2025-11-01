@@ -10,4 +10,4 @@ WHERE
     II.INGREDIENT_TYPE = 'fruit_based'  AND -- 주 성분이 과일인 아이스크림 맛 필터링
     FH.TOTAL_ORDER > 3000 -- 총 주문량 3000 이상 필터링
 ORDER BY
-    TOTAL_ORDER DESC; -- 총 주문량이 큰 순서대로 정렬
+    FH.TOTAL_ORDER DESC; -- 총 주문량이 큰 순서대로 정렬
