@@ -1,3 +1,4 @@
+// 하샤드 수
 class Solution {
     fun solution(x: Int): Boolean {
         var num = x
