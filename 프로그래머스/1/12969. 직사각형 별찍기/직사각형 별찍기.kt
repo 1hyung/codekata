@@ -1,3 +1,4 @@
+// 직사각형 별찍기
 fun main(args: Array<String>) {
     val (n, m) = readln().split(" ").map { it.toInt() } // 입력값 n, m 추출
 
