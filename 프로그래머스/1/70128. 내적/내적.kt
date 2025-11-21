@@ -1,3 +1,4 @@
+// 내적
 class Solution {
     fun solution(a: IntArray, b: IntArray): Int =
         a.zip(b) // a와 b를 Pair 형태로 묶음
