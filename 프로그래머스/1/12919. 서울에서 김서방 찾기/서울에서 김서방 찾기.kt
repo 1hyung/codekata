@@ -1,3 +1,4 @@
+// 서울에서 김서방 찾기
 class Solution {
     fun solution(seoul: Array<String>): String {
         val index = seoul.indexOf("Kim") // "Kim"의 위치를 indexOf로 찾음
