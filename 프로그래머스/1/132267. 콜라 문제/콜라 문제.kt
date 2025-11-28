@@ -1,3 +1,4 @@
+// 콜라문제
 class Solution {
     fun solution(a: Int, b: Int, n: Int): Int {
         var empty = n // 현재 보유 중인 빈 병
