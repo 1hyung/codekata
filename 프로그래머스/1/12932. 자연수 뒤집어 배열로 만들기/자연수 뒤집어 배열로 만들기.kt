@@ -1,4 +1,5 @@
 // 자연수 뒤집어 배열로 만들기
+
 class Solution {
     fun solution(n: Long): IntArray =
         n.toString()  // 숫자를 문자열로 변환: 12345 → "12345"
