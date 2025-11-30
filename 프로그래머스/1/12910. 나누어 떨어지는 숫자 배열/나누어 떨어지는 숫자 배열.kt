@@ -1,4 +1,5 @@
 // 나누어 떨어지는 숫자 배열
+
 class Solution {
     fun solution(arr: IntArray, divisor: Int): IntArray =
         arr.filter { it % divisor == 0 }       // 나누어 떨어지는 값 필터링
