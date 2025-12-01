@@ -1,3 +1,4 @@
+// 대충 만든 자판
 class Solution {
     fun solution(keymap: Array<String>, targets: Array<String>): IntArray {
         val keyMap = mutableMapOf<Char, Int>()
