@@ -1,3 +1,4 @@
+// 숫자 짝꿍
 class Solution {
     fun solution(X: String, Y: String): String {
         // 숫자 0부터 9까지 각각의 개수를 저장할 배열
