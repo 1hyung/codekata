@@ -1,3 +1,4 @@
+// 크기가 작은 부분문자열
 class Solution {
     fun solution(t: String, p: String): Int {
         val pLength = p.length
