@@ -1,7 +1,8 @@
 // 나이 출력
 class Solution {
     fun solution(age: Int): Int {
-        var answer: Int = 2022 - age + 1
+        var year = 2022
+        var answer = year - age + 1
         return answer
     }
 }
