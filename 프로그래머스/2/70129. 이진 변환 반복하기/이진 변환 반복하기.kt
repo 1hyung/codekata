@@ -1,3 +1,4 @@
+// 이전 변환 반복하기
 class Solution {
     fun solution(s: String): IntArray {
         var transformationCount = 0 // 이진 변환의 횟수를 저장
