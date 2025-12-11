@@ -1,3 +1,4 @@
+// 의상
 class Solution {
     fun solution(clothes: Array<Array<String>>): Int {
         // 의상의 종류별로 개수를 저장할 맵
