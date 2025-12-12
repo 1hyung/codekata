@@ -1,3 +1,4 @@
+// 과일 장수
 class Solution {
     fun solution(k: Int, m: Int, score: IntArray): Int {
         val sorted = score.sortedDescending()
