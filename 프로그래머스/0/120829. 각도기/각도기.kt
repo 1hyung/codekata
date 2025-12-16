@@ -1,14 +1,11 @@
-// 각도기
 
-// 각에서 0도 초과 90도 미만은 예각 -> 1
-// 90도는 직각 -> 2
-// 90도 초과 180도 미만은 둔각 -> 3
-// 180도는 평각으로 분류 -> 4
+// 각도기
 class Solution {
-    fun solution(angle: Int): Int = when {
-        angle < 90 -> 1 // 각에서 0도 초과 90도 미만은 예각 
-        angle == 90 -> 2 // 90도는 직각
-        angle < 180 -> 3 // 90도 초과 180도 미만은 둔각
-        else -> 4  // 180도는 평각
+    fun solution(angle: Int): Int = when (angle) {
+        in 1 until 90 -> 1     // 예각
+        90 -> 2                // 직각
+        in 91 until 180 -> 3   // 둔각
+        180 -> 4               // 평각
+        else -> throw IllegalArgumentException("잘못된 각도입니다")
     }
 }
