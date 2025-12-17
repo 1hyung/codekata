@@ -1,3 +1,4 @@
+// K번째수
 class Solution {
     fun solution(array: IntArray, commands: Array<IntArray>): IntArray {
         val answer = mutableListOf<Int>()
