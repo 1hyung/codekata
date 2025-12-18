@@ -1,3 +1,4 @@
+// 카펫
 class Solution {
     fun solution(brown: Int, yellow: Int): IntArray {
         val total = brown + yellow  // 전체 격자의 수
