@@ -1,3 +1,4 @@
+// 카드 뭉치
 class Solution {
     fun solution(cards1: Array<String>, cards2: Array<String>, goal: Array<String>): String {
         var idx1 = 0
