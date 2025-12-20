@@ -1,3 +1,4 @@
+// 덧칠하기
 class Solution {
     fun solution(n: Int, m: Int, section: IntArray): Int {
         var count = 0
