@@ -1,3 +1,4 @@
+// 모의고사
 class Solution {
     fun solution(answers: IntArray): IntArray {
         // 수포자들의 찍기 패턴 정의
