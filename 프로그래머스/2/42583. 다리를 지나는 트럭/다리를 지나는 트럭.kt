@@ -1,3 +1,4 @@
+// 다리를 지나는 트럭
 import java.util.LinkedList
 import java.util.Queue
 
