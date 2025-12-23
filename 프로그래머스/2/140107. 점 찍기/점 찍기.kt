@@ -1,3 +1,4 @@
+// 점 찍기
 import kotlin.math.sqrt
 
 class Solution {
