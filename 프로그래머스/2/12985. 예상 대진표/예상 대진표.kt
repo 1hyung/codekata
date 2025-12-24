@@ -1,3 +1,4 @@
+// 예상 대진표
 class Solution {
     fun solution(n: Int, a: Int, b: Int): Int {
         var round = 0  // 현재 라운드를 저장
