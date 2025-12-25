@@ -1,3 +1,4 @@
+// 뒤에 있는 큰 수 찾기
 class Solution {
     fun solution(numbers: IntArray): IntArray {
         val result = IntArray(numbers.size) { -1 }  // 결과 배열을 -1로 초기화
