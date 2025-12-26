@@ -1,3 +1,4 @@
+// 귤 고르기
 class Solution {
     fun solution(k: Int, tangerine: IntArray): Int {
         // 1. 각 크기별 귤의 개수를 카운트합니다.
