@@ -1,3 +1,4 @@
+// 공원 산책
 class Solution {
     fun solution(park: Array<String>, routes: Array<String>): IntArray {
         // 공원의 크기를 변수로 설정
