@@ -1,3 +1,4 @@
+// 멀리 뛰기
 class Solution {
     fun solution(n: Int): Int {
         // 기본적으로 배열로 DP 테이블을 선언합니다.
