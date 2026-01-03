@@ -1,3 +1,4 @@
+// 성격 유형 검사하기
 class Solution {
     fun solution(survey: Array<String>, choices: IntArray): String {
         val types = mutableMapOf(
