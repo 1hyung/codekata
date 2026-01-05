@@ -1,3 +1,4 @@
+// 삼각 달팽이
 class Solution {
     fun solution(n: Int): IntArray {
         // n x n 크기의 2차원 배열을 초기화
