@@ -1,3 +1,4 @@
+// 롤케이크 자르기
 class Solution {
     fun solution(topping: IntArray): Int {
         val leftSet = mutableSetOf<Int>()           // 왼쪽 토핑 종류를 저장하는 집합
