@@ -1,3 +1,4 @@
+// 시소 짝꿍
 class Solution {
     var answer: Long = 0 // 가능한 짝꿍 수의 최대값을 저장할 변수
     
