@@ -1,3 +1,4 @@
+// 숫자 카드 나누기
 class Solution {
     // 최대 공약수 함수
     private fun gcd(a: Int, b: Int): Int {
