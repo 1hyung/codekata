@@ -1,3 +1,4 @@
+// 전력망을 둘로 나누기
 class Solution {
     fun solution(n: Int, wires: Array<IntArray>): Int {
         // 그래프 인접 리스트 생성
