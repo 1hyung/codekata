@@ -1,3 +1,4 @@
+// 무인도 여행
 class Solution {
     fun solution(maps: Array<String>): List<Int> {
         val rows = maps.size
