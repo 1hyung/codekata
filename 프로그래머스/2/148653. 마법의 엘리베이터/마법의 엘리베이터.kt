@@ -1,3 +1,4 @@
+// 마법의 엘리베이터
 class Solution {
     fun solution(storey: Int): Int {
         var remaining = storey
