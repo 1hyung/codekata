@@ -1,3 +1,4 @@
+// 행렬 테두리 회전하기
 class Solution {
     fun solution(rows: Int, columns: Int, queries: Array<IntArray>): List<Int> {
         // 1. 행렬 초기화
