@@ -1,3 +1,4 @@
+-- 조건에 부합하는 중고거래 상태 조회하기
 SELECT 
     BOARD_ID,              -- 게시글 ID
     WRITER_ID,             -- 작성자 ID
