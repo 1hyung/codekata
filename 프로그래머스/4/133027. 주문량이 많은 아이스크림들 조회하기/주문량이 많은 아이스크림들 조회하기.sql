@@ -1,3 +1,4 @@
+-- 주문량이 많은 아이스크림들 조회하기
 WITH COMBINED_ORDERS AS (
     SELECT
         F.FLAVOR,                                   -- 아이스크림 맛
