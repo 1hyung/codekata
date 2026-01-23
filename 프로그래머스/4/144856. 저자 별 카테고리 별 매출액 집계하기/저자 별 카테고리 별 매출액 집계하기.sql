@@ -1,3 +1,4 @@
+-- 저자 별 카테고리 별 매출액 집계하기
 SELECT 
     B.AUTHOR_ID, 
     A.AUTHOR_NAME, 
