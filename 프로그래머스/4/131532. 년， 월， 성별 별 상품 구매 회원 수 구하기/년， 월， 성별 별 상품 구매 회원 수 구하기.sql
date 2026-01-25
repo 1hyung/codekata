@@ -1,3 +1,4 @@
+-- 년, 월, 성별 별 상품 구매 회원 수 구하기
 SELECT 
     YEAR(S.SALES_DATE) AS YEAR,            -- 판매 날짜의 연도 추출
     MONTH(S.SALES_DATE) AS MONTH,          -- 판매 날짜의 월 추출
