@@ -1,3 +1,4 @@
+-- 조건에 부합하는 중고거래 댓글 조회하기
 SELECT 
     B.TITLE AS TITLE,                     -- 게시글 제목
     B.BOARD_ID AS BOARD_ID,               -- 게시글 ID
