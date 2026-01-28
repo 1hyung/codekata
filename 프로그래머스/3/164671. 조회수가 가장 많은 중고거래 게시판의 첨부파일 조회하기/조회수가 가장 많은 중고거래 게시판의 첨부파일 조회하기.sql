@@ -1,3 +1,4 @@
+-- 조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기
 SELECT 
     CONCAT('/home/grep/src/', F.BOARD_ID, '/', F.FILE_ID, F.FILE_NAME, F.FILE_EXT) AS FILE_PATH -- 첨부파일 경로 생성
 FROM 
