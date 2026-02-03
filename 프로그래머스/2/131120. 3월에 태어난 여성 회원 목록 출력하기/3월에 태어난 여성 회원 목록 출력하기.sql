@@ -12,4 +12,4 @@ WHERE
     MONTH(DATE_OF_BIRTH) = 3           -- 생일이 3월인 회원
     AND GENDER = 'W'                   -- 여성 회원
     AND TLNO IS NOT NULL               -- 전화번호가 존재하는 회원
-ORDER BY MEMBER_ID ASC;                -- ID 오름차순 정렬
+ORDER BY MEMBER_ID;                -- ID 오름차순 정렬
