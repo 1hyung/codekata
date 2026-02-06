@@ -1,4 +1,5 @@
 // 수박수박수박수박수박수?
+
 class Solution {
     fun solution(n: Int): String {
         val sb = StringBuilder()
