@@ -1,4 +1,5 @@
 // 3진법 뒤집기
+
 class Solution {
     fun solution(n: Int): Int =
         n.toString(3)        // 1.3진법 문자열로 변환
