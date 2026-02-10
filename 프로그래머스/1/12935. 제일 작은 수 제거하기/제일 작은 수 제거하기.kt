@@ -1,4 +1,5 @@
 // 제일 작은 수 제거하기
+
 class Solution {
     fun solution(arr: IntArray): IntArray =
         arr.filter { it != arr.minOrNull() } // 가장 작은 값 제외
