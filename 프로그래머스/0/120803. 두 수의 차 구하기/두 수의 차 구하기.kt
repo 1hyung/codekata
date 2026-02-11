@@ -1,7 +1,4 @@
 // 두 수의 차 구하기
 class Solution {
-    fun solution(num1: Int, num2: Int): Int {
-        var answer: Int = num1 - num2
-        return answer
-    }
+    fun solution(num1: Int, num2: Int): Int = num1 - num2
 }
