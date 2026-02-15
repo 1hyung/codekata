@@ -1,4 +1,3 @@
-
 // 각도기
 class Solution {
     fun solution(angle: Int): Int = when (angle) {
