@@ -1,3 +1,4 @@
+// 푸드 파이트 대회
 class Solution {
     fun solution(food: IntArray): String {
         val sb = StringBuilder() // 좌측 음식 나열 저장용
