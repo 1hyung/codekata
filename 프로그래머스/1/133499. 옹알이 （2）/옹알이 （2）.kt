@@ -1,4 +1,5 @@
 // 옹앙이 (2)
+
 class Solution {
     fun solution(babbling: Array<String>): Int {
         val pronunciations = arrayOf("aya", "ye", "woo", "ma")
