@@ -1,4 +1,5 @@
 // 피로도
+
 import kotlin.math.max
 
 class Solution {
