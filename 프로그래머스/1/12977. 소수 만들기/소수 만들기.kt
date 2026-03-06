@@ -1,4 +1,5 @@
 // 소수 만들기
+
 class Solution {
     fun solution(nums: IntArray): Int {
         var count = 0
