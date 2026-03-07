@@ -1,4 +1,5 @@
 // 피보나치 수
+
 class Solution {
     fun solution(n: Int): Int {
         val mod = 1234567
