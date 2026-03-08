@@ -1,3 +1,4 @@
+// 모음 사전
 class Solution {
     fun solution(word: String): Int {
         val vowels = listOf('A', 'E', 'I', 'O', 'U')  // 모음 리스트
