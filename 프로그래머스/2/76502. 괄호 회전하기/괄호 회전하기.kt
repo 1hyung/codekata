@@ -1,4 +1,5 @@
 // 괄호 회전하기
+
 class Solution {
     fun solution(s: String): Int {
         var count = 0 // 올바른 괄호 문자열이 되는 회전 횟수를 저장할 변수
