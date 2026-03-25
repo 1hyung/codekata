@@ -1,4 +1,5 @@
 -- 2022년 5월에 생산된 식품들의 총매출 조회
+
 SELECT 
     p.PRODUCT_ID, 
     p.PRODUCT_NAME, 
