@@ -1,3 +1,4 @@
+// 숫자 문자열과 영단어
 class Solution {
     fun solution(s: String): Int {
         val nums = listOf(
