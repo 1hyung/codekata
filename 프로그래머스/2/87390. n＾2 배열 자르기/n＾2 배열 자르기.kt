@@ -1,3 +1,4 @@
+// n^2 배열 자르기
 class Solution {
     fun solution(n: Int, left: Long, right: Long): IntArray {
         // 결과 배열을 초기화합니다. 크기는 right - left + 1로 설정합니다.
