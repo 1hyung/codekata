@@ -1,4 +1,5 @@
 // 최소직사각형
+
 class Solution {
     fun solution(sizes: Array<IntArray>): Int {
         var maxW = 0
