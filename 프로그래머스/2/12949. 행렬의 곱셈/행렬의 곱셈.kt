@@ -1,3 +1,4 @@
+// 행렬의 곱셈
 class Solution {
     fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> {
         val rowA = arr1.size // arr1의 행 개수
