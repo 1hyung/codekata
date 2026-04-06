@@ -1,3 +1,5 @@
+// 개인정보 수집 유효기간
+
 class Solution {
     fun solution(today: String, terms: Array<String>, privacies: Array<String>): IntArray {
         val todayDate = parseDate(today) // 오늘 날짜를 List<Int>로 변환
