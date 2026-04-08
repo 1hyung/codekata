@@ -1,4 +1,5 @@
 // 기사단원의 무기 
+
 class Solution {
     fun solution(number: Int, limit: Int, power: Int): Int {
         var totalWeight = 0
