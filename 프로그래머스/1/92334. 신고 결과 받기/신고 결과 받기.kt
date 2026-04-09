@@ -1,3 +1,4 @@
+// 신고 결과 받기
 class Solution {
     fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
         // 신고 정보를 담을 Map을 생성
