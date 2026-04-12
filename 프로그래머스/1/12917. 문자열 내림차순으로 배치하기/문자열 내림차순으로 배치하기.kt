@@ -1,3 +1,4 @@
+// 문자열 내림차순으로 배치하기
 class Solution {
     fun solution(s: String): String =
         s.toCharArray()         // 문자열을 문자 배열로 변환
