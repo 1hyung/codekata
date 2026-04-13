@@ -1,3 +1,5 @@
+// 가장 가까운 같은 글자
+
 class Solution {
     fun solution(s: String): IntArray {
         val map = mutableMapOf<Char, Int>() // 각 문자의 마지막 등장 위치 저장
